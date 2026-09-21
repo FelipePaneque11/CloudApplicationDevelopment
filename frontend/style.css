@@ -1,0 +1,662 @@
+/* Shared colour palette */
+:root {
+    --navy: #153557;
+    --text: #172237;
+    --muted: #7c808b;
+    --cream: #f8f7f4;
+    --border: #e5e7eb;
+}
+
+/* Base sizing and browser resets */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: white;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+/* Shared button style */
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 13px 22px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--navy);
+    color: white;
+    cursor: pointer;
+}
+
+/* Visible focus for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #6695c2;
+    outline-offset: 4px;
+}
+
+
+/* Centre content and limit its width */
+.container {
+    width: min(1180px, 85%);
+    margin-inline: auto;
+}
+
+/* Small uppercase section label */
+.eyebrow {
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Navigation background */
+.header {
+    background: #f5f4f2;
+}
+
+/* Align logo, links and booking button */
+.navigation {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* Hotel branding */
+.logo {
+    color: var(--navy);
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    display: block;
+    margin-top: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Navigation link layout */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 14px;
+}
+
+.nav-links a {
+    padding-bottom: 6px;
+}
+
+/* Underline hovered and active links */
+.nav-links a:hover,
+.nav-links .active {
+    color: var(--navy);
+    border-bottom: 1px solid var(--navy);
+}
+
+/* Welcome image with a dark text overlay */
+.hero {
+    min-height: 460px;
+    padding: 76px 0 100px;
+    color: white;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 26, 40, 0.55),
+            rgba(9, 26, 40, 0.04)
+        ),
+        url("../img/header.png") center / cover no-repeat;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 4.5vw, 58px);
+    line-height: 1.03;
+}
+
+/* Keep welcome text easy to read */
+.hero-description {
+    max-width: 410px;
+    margin: 18px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Rounded room exploration button */
+.hero-button {
+    padding: 7px 8px 7px 26px;
+    border: 1px solid white;
+    border-radius: 30px;
+}
+
+/* Circular arrow badge */
+.hero-button span {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: white;
+    color: var(--navy);
+    font-size: 22px;
+}
+
+/* Booking card overlapping the welcome banner */
+.booking {
+    position: relative;
+    /* Keep the card above the banner */
+    z-index: 1;
+    /* Pull the card over the banner edge */
+    margin-top: -70px;
+    padding: 24px 32px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.13);
+}
+
+/* Align booking title and reassurance note */
+.booking-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.booking h2 {
+    margin-bottom: 5px;
+    color: var(--navy);
+    font-size: 28px;
+}
+
+.booking-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.booking-heading .booking-note {
+    color: var(--navy);
+    font-size: 11px;
+}
+
+/* Six booking fields and a search button */
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) auto;
+    gap: 10px;
+    align-items: end;
+}
+
+/* Allow fields to shrink within the grid */
+.field {
+    min-width: 0;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 11px;
+}
+
+/* Consistent booking controls */
+.field input,
+.field select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: white;
+    color: var(--text);
+    font-size: 11px;
+}
+
+.booking-form button {
+    min-height: 44px;
+    padding-inline: 16px;
+    font-size: 12px;
+}
+
+/* Four-column amenities layout */
+.amenities {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-block: 56px 34px;
+    text-align: center;
+}
+
+.amenity {
+    padding: 0 16px;
+}
+
+.amenity + .amenity {
+    border-left: 1px solid #f0f0f0;
+}
+
+/* Circular amenity icon background */
+.amenity-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #f5f3ef;
+    color: var(--navy);
+    font-size: 30px;
+}
+
+.amenity h3 {
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.amenity p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Featured rooms background and spacing */
+.rooms-section {
+    padding: 28px 0;
+    background: var(--cream);
+}
+
+/* Align section titles and optional links */
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+}
+
+/* Three room cards per row */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Rounded room card with a subtle shadow */
+.room-card {
+    overflow: hidden;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+}
+
+.room-card > img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    /* Crop photos without stretching */
+    object-fit: cover;
+}
+
+/* Space around room descriptions */
+.room-content {
+    padding: 18px;
+}
+
+.room-content h3 {
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.room-content > p {
+    min-height: 40px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* Guest capacity, beds and room size */
+.room-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 16px 0;
+    padding: 0;
+    color: var(--muted);
+    list-style: none;
+    font-size: 12px;
+}
+
+/* Align the nightly price and booking link */
+.room-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--navy);
+}
+
+.room-bottom p {
+    font-size: 13px;
+}
+
+.room-bottom strong {
+    font-size: 22px;
+}
+
+.room-bottom a {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #edf1f6;
+    font-size: 22px;
+}
+
+/* Offer text beside a promotional image */
+.offers {
+    display: grid;
+    grid-template-columns: 36% 1fr;
+    min-height: 240px;
+    overflow: hidden;
+    margin-block: 16px 28px;
+    border-radius: 15px;
+    background:
+        linear-gradient(90deg, transparent 45%, rgba(15, 37, 29, 0.8)),
+        url("../img/offerImg.png") center / cover no-repeat;
+    color: white;
+}
+
+/* Solid background behind offer text */
+.offer-copy {
+    padding: 30px 36px;
+    background: #505d47;
+}
+
+.offer-copy h2 {
+    margin-bottom: 8px;
+    font-size: 34px;
+    line-height: 1.1;
+}
+
+.offer-copy > p:not(.eyebrow) {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.offer-copy .button {
+    padding: 10px 26px;
+    border-radius: 24px;
+    background: #faf8f3;
+    color: var(--text);
+    font-size: 12px;
+}
+
+/* Position the discount over the image */
+.offer-discount {
+    align-self: center;
+    justify-self: end;
+    padding: 32px;
+    text-align: center;
+}
+
+.offer-discount span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.offer-discount strong {
+    display: block;
+    margin: 4px 0;
+    font-family: Georgia, serif;
+    font-size: 40px;
+}
+
+/* Reviews and gallery side by side */
+.lower-sections {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    padding-bottom: 36px;
+}
+
+.lower-sections h2 {
+    font-size: 30px;
+}
+
+.lower-sections .eyebrow {
+    margin-bottom: 4px;
+    font-size: 9px;
+}
+
+/* Bordered guest review */
+.review-card {
+    margin: 12px 0 0;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.review-card blockquote {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Gold review rating */
+.stars {
+    margin-bottom: 6px;
+    color: #efac19;
+    letter-spacing: 2px;
+}
+
+.review-card figcaption {
+    font-size: 11px;
+}
+
+.review-card figcaption span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+}
+
+/* Four evenly spaced gallery photos */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Footer background and spacing */
+.footer {
+    padding: 24px 0;
+    background: #f6f6f6;
+}
+
+/* Align footer branding, tagline and link */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 13px;
+}
+
+.footer .logo {
+    font-size: 24px;
+}
+
+/* Wrap navigation and booking fields on smaller screens */
+@media (max-width: 1100px) {
+    .navigation {
+        flex-wrap: wrap;
+        padding-block: 16px;
+    }
+
+    .nav-links {
+        order: 3;
+        justify-content: center;
+        width: 100%;
+        gap: 24px;
+    }
+
+    .booking-form {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .booking-form button {
+        grid-column: 1 / -1;
+    }
+
+    .offers {
+        grid-template-columns: 50% 1fr;
+    }
+
+    .lower-sections {
+        gap: 28px;
+    }
+}
+
+/* Stack sections and reduce columns on mobile */
+@media (max-width: 700px) {
+    .container {
+        width: 92%;
+    }
+
+    .nav-links {
+        gap: 16px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 440px;
+        padding-top: 56px;
+    }
+
+    .booking {
+        margin-top: -40px;
+        padding: 22px;
+    }
+
+    .booking-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .booking-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .amenities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 0;
+        padding-top: 36px;
+    }
+
+    .amenity + .amenity {
+        border-left: 0;
+    }
+
+    .room-grid,
+    .lower-sections,
+    .offers {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .offer-copy {
+        padding: 28px;
+    }
+
+    .offer-discount {
+        justify-self: stretch;
+        padding-block: 46px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Single-column booking on narrow phones */
+@media (max-width: 400px) {
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
