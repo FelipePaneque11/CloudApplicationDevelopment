@@ -7,7 +7,6 @@ from database import SessionLocal, engine
 from fastapi.middleware.cors import CORSMiddleware
 import models, schemas
 import logging
-from mockdata import csvToJson
 
 # Create all tables in the database
 models.Base.metadata.create_all(bind=engine)
@@ -38,7 +37,6 @@ def get_db():
 # ROOT
 @app.get("/")
 def read_root():
-    csvToJson()
     return {"message": "Use the RESTful API"}
 
 # CREATE - Add a new item
